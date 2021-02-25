@@ -1,0 +1,69 @@
+package com.abc.dao;
+
+ 
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+ 
+
+import com.abc.util.DBUtil;
+
+ 
+
+public class ProductDAO {
+    
+    public boolean insert(int pid, String name, double price) {
+        
+        boolean flag = false;
+        
+        Connection con = DBUtil.getDBConnection();
+
+ 
+
+        String sql = "insert into product_tbl values(?,?,?)";
+
+ 
+
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, pid);
+            ps.setString(2, name);
+            ps.setDouble(3, price);
+            
+            int result = ps.executeUpdate();
+            
+            if(result == 1) {
+                flag = true;
+            }            
+
+ 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+ 
+
+        finally {
+            DBUtil.closeDBConnection(con);
+        }    
+        
+        return flag;        
+    }
+    
+    public void update() {
+        
+    }
+    
+    public void delete() {
+        
+    }
+    
+    public void select() {
+        
+    }
+    
+}

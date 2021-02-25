@@ -1,0 +1,42 @@
+Account_tbl:
+
+ 
+
+      id accno name balance opening_date account_type customer_id
+
+ 
+
+      constraints: 
+
+ 
+
+       id - primary key- auto increment using sequence start with 10000
+
+ 
+
+       accno - unique
+
+ 
+
+       account_type - check (saving or current)
+
+ 
+
+       customer_id - foreign key
+
+ 
+
+---------------------------------------------------------------------------
+  customer_tbl
+
+ 
+
+      id first_name last_name email mobile username password
+
+ 
+
+      constraints: 
+
+ 
+
+      id  - PK - auto increment using sequence start with 11

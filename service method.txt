@@ -1,0 +1,6 @@
+public void getProductById(int productId) {
+       
+        ProductDAO productDAO = new ProductDAO();
+       
+        productDAO.fetchProductById(productId);
+    }

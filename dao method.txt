@@ -1,0 +1,40 @@
+public void fetchProductById(int productId) {
+        
+        Connection con = DBUtil.getDBConnection();
+
+ 
+
+        String sql = "select * from product_tbl where product_id = ?";
+        
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()) {                
+              System.out.println("Product Details");
+              int pid = rs.getInt("product_id");
+              String name = rs.getString(2);
+              double price = rs.getDouble(3);
+              System.out.println(pid+"  "+name+"  "+price);
+              
+            }    
+            else {
+                 System.out.println("not available");
+            }
+            
+
+ 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+ 
+
+        finally {
+            DBUtil.closeDBConnection(con);
+        }    
+        
+    }

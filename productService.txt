@@ -1,0 +1,23 @@
+package com.abc.service;
+
+ 
+
+import com.abc.dao.ProductDAO;
+
+ 
+
+public class ProductService {
+    
+    
+    public boolean addProduct(int pid, String name, double price) {
+        
+        //validate input         
+        ProductDAO productDAO = new ProductDAO();
+        boolean result = productDAO.insert(pid, name, price);
+        
+        return result;
+    }
+
+ 
+
+}
